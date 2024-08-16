@@ -26,6 +26,7 @@ func main() {
 			defer wg.Done()
 			<-start // Wait for the start signal
 			for i := 0; i < numIterationsVal; i++ {
+				fmt.Printf("%vth iteration for proccess %v\n", i+1, pid)
 				bakeryState.BakeryAlgorithm(sharedMemory, pid)
 			}
 		}(i)

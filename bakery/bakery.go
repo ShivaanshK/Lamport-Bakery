@@ -3,6 +3,7 @@ package bakery
 import (
 	"fmt"
 	"math/rand/v2"
+	"time"
 )
 
 type SharedMemory struct {
@@ -46,11 +47,11 @@ func (bakeryState *Bakery) BakeryAlgorithm(sharedMemory *SharedMemory, pid int) 
 		}
 		// Wait until the other process is done choosing
 		for bakeryState.Choosing[i] {
-			// Leave empty to force a busy wait
+			time.Sleep(5 * time.Millisecond)
 		}
 		// Wait until the other process has a higher number or the same number but higher PID
 		for bakeryState.Number[i] != 0 && (bakeryState.Number[i] < bakeryState.Number[pid] || (bakeryState.Number[i] == bakeryState.Number[pid] && i < pid)) {
-			// Leave empty to force a busy wait
+			time.Sleep(5 * time.Millisecond)
 		}
 	}
 
@@ -87,6 +88,7 @@ func remainder(pid int) {
 	fmt.Printf("Process %v entered remainder portion\n", pid)
 	numOperations := rand.IntN(10000)
 	for i := 0; i < numOperations; i++ {
+		rand.IntN(100)
 	}
 	fmt.Printf("Process %v leaving remainder portion\n", pid)
 }

@@ -9,7 +9,7 @@ git@github.com:ShivaanshK/Lamport-Bakery.git
 cd Lamport-Bakery
 ```
 ```bash
-go run main.go -numProcesses=n numIterations=i
+go run main.go -numProcesses=n -numIterations=i
 ```
 n = Number of processes randomly competing for access to the criticial section
 
