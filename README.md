@@ -5,7 +5,7 @@ This repository implements Lamport's bakery algorithm for mutual exclusion.
 To run a demo, do the following.
 
 ```bash
-git@github.com:ShivaanshK/Lamport-Bakery.git
+git clone git@github.com:ShivaanshK/Lamport-Bakery.git
 cd Lamport-Bakery
 ```
 ```bash
